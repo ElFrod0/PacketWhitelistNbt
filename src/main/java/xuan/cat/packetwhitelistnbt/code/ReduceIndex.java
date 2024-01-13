@@ -25,6 +25,9 @@ import xuan.cat.packetwhitelistnbt.code.branch.v18.Branch_18_Packet;
 import xuan.cat.packetwhitelistnbt.code.branch.v19.Branch_19_Minecraft;
 import xuan.cat.packetwhitelistnbt.code.branch.v19.Branch_19_NBT;
 import xuan.cat.packetwhitelistnbt.code.branch.v19.Branch_19_Packet;
+import xuan.cat.packetwhitelistnbt.code.branch.v20.Branch_20_Minecraft;
+import xuan.cat.packetwhitelistnbt.code.branch.v20.Branch_20_NBT;
+import xuan.cat.packetwhitelistnbt.code.branch.v20.Branch_20_Packet;
 import xuan.cat.packetwhitelistnbt.code.command.Command;
 import xuan.cat.packetwhitelistnbt.code.command.CommandSuggest;
 import xuan.cat.packetwhitelistnbt.code.data.ConfigData;
@@ -74,6 +77,11 @@ public final class ReduceIndex extends JavaPlugin {
             branchPacket    = new Branch_19_Packet();
             branchNBT       = new Branch_19_NBT();
             branchMinecraft = new Branch_19_Minecraft();
+        } else if (bukkitVersion.matches("^1\\.20\\D.*$")) {
+            // 1.19
+            branchPacket    = new Branch_20_Packet();
+            branchNBT       = new Branch_20_NBT();
+            branchMinecraft = new Branch_20_Minecraft();
         } else {
             throw new IllegalArgumentException("Unsupported MC version: " + bukkitVersion);
         }

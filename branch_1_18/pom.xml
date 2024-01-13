@@ -8,6 +8,13 @@
     <artifactId>branch_1_18</artifactId>
     <version>r1</version>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>bytecode.space</id>
+            <url>https://repo.bytecode.space/repository/maven-public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,6 +34,19 @@
             </plugin>
 
             <plugin>
+                <groupId>ca.bkaw</groupId>
+                <artifactId>paper-nms-maven-plugin</artifactId>
+                <version>1.4.3</version>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>remap</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- <plugin>
                 <groupId>net.md-5</groupId>
                 <artifactId>specialsource-maven-plugin</artifactId>
                 <version>1.2.4</version>
@@ -58,7 +78,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
         </plugins>
         <resources>
             <resource>
@@ -74,10 +94,25 @@
             <id>dmulloy2-repo</id>
             <url>https://repo.dmulloy2.net/repository/public/</url>
         </repository>
-
-        <repository>
+        <!-- <repository>
             <id>minecraft_environment</id>
             <url>https://xuancat.app:8443/repository/minecraft_environment/</url>
+        </repository> -->
+        <repository>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>spigotmc-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
     </repositories>
 
@@ -154,6 +189,12 @@
 
         <!-- 1.18 paper -->
         <dependency>
+            <groupId>ca.bkaw</groupId>
+            <artifactId>paper-nms</artifactId>
+            <version>1.18.2-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- <dependency>
             <groupId>paper</groupId>
             <artifactId>1.18.2</artifactId>
             <version>311</version>
@@ -170,6 +211,6 @@
             <artifactId>1.18.2</artifactId>
             <version>311</version>
             <classifier>mojangapi</classifier>
-        </dependency>
+        </dependency> -->
     </dependencies>
 </project>
